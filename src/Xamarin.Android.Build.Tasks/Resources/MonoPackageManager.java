@@ -114,13 +114,3 @@ public class MonoPackageManager {
 	}
 }
 
-class MonoPackageManager_Resources {
-	public static final String[] Assemblies = new String[]{
-		/* We need to ensure that "Scratch.Bxc55050.dll" comes first in this list. */
-		"Scratch.Bxc55050.dll",
-	};
-	public static final String[] Dependencies = new String[]{
-	};
-	public static final String ApiPackageName = "Mono.Android.Platform.ApiLevel_27";
-}
-
