@@ -646,16 +646,19 @@ copy_native_libraries_to_internal_location (void)
 		log_warn (LOG_DEFAULT, "checking directory: `%s`", dir_path);
 
 		if (dir_path == NULL || !directory_exists (dir_path)) {
+			log_warn (LOG_DEFAULT, "directory does not exist: `%s`", dir_path);
 			free (dir_path);
 			continue;
 		}
 
 		if ((dir = monodroid_opendir (dir_path)) == NULL) {
+			log_warn (LOG_DEFAULT, "could not open directory: `%s`", dir_path);
 			free (dir_path);
 			continue;
 		}
 
 		while (readdir_r (dir, &b, &e) == 0 && e) {
+			log_warn (LOG_DEFAULT, "checking file: `%s`", e->d_name);
 			if (monodroid_dirent_hasextension (e, ".so")) {
 				copy_file_to_internal_location (primary_override_dir, dir_path, e->d_name);
 			}
